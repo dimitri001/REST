@@ -47,7 +47,7 @@ Desktop.ini
 
 RemoteSystemsTempFiles
 Servers 
-Servers/**
+Jersey/Servers
 *.pydevproject
 .project
 .metadata
