@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.korso.rest.crud</groupId>
+  <artifactId>RESTfullCRUD</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>RESTfullCRUD Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+    <jUnit.version>3.8.1</jUnit.version>
+    <servlet.api.version>3.1.0</servlet.api.version>
+    <mvn.compiler.version>3.3</mvn.compiler.version>
+    <mvn.config.version>1.7</mvn.config.version>
+    <json.version>20140107</json.version>
+	<jersey.version>1.19</jersey.version>
+	<asm.version>3.3.1</asm.version>
+	<jaxb.version>2.2.7</jaxb.version>    
+  </properties>
+  
+  <build>
+  	<finalName>RESTfullCRUD</finalName>
+<!--  	<plugins>
+		<plugin>
+        	<artifactId>maven-compiler-plugin</artifactId>
+        	<version>${mvn.compiler.version}</version>
+			<configuration>
+				<source>${mvn.config.version}</source>
+				<target>${mvn.config.version}</target>
+			</configuration>
+		</plugin>
+	</plugins>
+-->	
+  </build>
+  
+  <dependencies>
+  
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${jUnit.version}</version>
+      <scope>test</scope>
+    </dependency>
+  
+    <dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>${servlet.api.version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>asm</groupId>
+		<artifactId>asm</artifactId>
+		<version>${asm.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>com.sun.jersey</groupId>
+		<artifactId>jersey-bundle</artifactId>
+		<version>${jersey.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>com.sun.jersey</groupId>
+		<artifactId>jersey-server</artifactId>
+		<version>1.19</version>
+	</dependency>
+		
+	<dependency>
+		<groupId>com.sun.jersey</groupId>
+		<artifactId>jersey-core</artifactId>
+		<version>${jersey.version}</version>
+	</dependency>	
+				
+	<dependency>
+		<groupId>org.json</groupId>
+		<artifactId>json</artifactId>
+		<version>${json.version}</version>
+	</dependency>	
+	
+	<dependency>
+		<groupId>javax.xml.bind</groupId>
+		<artifactId>jaxb-api</artifactId>
+	<version>${jaxb.version}</version>
+</dependency>
+	
+
+  </dependencies>
+
+  
+</project>
