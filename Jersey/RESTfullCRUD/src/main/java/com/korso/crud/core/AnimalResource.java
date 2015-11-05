@@ -1,18 +1,27 @@
 package com.korso.crud.core;
 
-
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import javax.xml.bind.JAXBElement;
 
 import com.korso.crud.dataaccess.AnimalService;
 
+
 public class AnimalResource {
 	
+	@Context
 	UriInfo uriInfo;
 	
+	@Context
 	Request request;
 	String id;
 	
@@ -28,15 +37,35 @@ public class AnimalResource {
 	@GET
 	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	public Animal getAnimal(){
-		Animal animal = animalService.getAnimal();
+		Animal animal = animalService.getAnimal(id);
 		return animal;
 	}
 	
 	@GET
 	@Produces(MediaType.TEXT_HTML)
 	public Animal getAnimalAsHtml(){
-		Animal animal = animalService.getAnimal();
+		Animal animal = animalService.getAnimal(id);
 		return animal;
+	}
+	
+	@PUT
+	@Consumes(MediaType.APPLICATION_XML)
+	public Response putAnimal(JAXBElement<Animal> animalElement){
+		
+		Animal animal = animalElement.getValue();
+		Response response;
+		if(animalService.getAnimals().containsKey(animal.getId())){
+			response = Response.noContent().build();
+		}else{
+			response = Response.created(uriInfo.getAbsolutePath()).build();
+		}
+		animalService.createAnimal(animal);
+		return response;		
+	}
+	
+	@DELETE
+	public void deleteAnimal(){
+		animalService.deleteAnimal(id);
 	}
 	
 }
